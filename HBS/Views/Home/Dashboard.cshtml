@@ -1,0 +1,42 @@
+﻿@{
+    ViewData["Title"] = "HBS - Home";
+    Layout = "~/Views/Home/Home_Layout.cshtml";
+}
+
+    <div class="container-fluid">
+
+        <div class="row">
+
+            <a class="col-xl-3 col-md-6 mb-4" href="#" onclick="document.getElementById('newRequest').submit();" style="text-decoration:none;">
+                <div class="card border-left-primary shadow h-100 py-2">
+                    <div class="card-body">
+                        <div class="row no-gutters align-items-center">
+                            <div class="col mr-2">
+                                <div class="h5 mb-0 font-weight-bold text-uppercase text-primary">New Request</div>
+                                <div class="text-xs font-weight-bold mb-1 text-gray-800">Apply for a Leave</div>
+                            </div>
+                            <div class="col-auto">
+                                <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+
+            <a class="col-xl-3 col-md-6 mb-4" href="#" onclick="document.getElementById('requestHistory').submit();" style="text-decoration:none;">
+                <div class="card border-left-success shadow h-100 py-2">
+                    <div class="card-body">
+                        <div class="row no-gutters align-items-center">
+                            <div class="col mr-2">
+                                <div class="h5 mb-0 font-weight-bold text-uppercase text-primary">Request History</div>
+                                <div class="text-xs font-weight-bold mb-1 text-gray-800">Show Leave History</div>
+                            </div>
+                            <div class="col-auto">
+                                <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>

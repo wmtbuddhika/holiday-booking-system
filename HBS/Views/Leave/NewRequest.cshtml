@@ -1,0 +1,69 @@
+﻿@using HBS.Models
+
+@{
+    ViewData["Title"] = "HBS - New Request";
+    Layout = "~/Views/Home/Home_Layout.cshtml";
+}
+
+@{
+    var employee = (Employee)ViewBag.Message;
+}
+
+<div class="container-fluid">
+    <h1 class="h3 mb-2 text-gray-800">New Request</h1>
+    <p class="mb-4">Apply for a new leave. Please fill following details.<br><br><strong>* Required field.</strong></p>
+
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">New Request Form</h6>
+        </div>
+        <div class="card-body">
+            <form class="user needs-validation" asp-controller="Leave" asp-action="SaveNewRequest">
+                <input type="hidden" name="empId" value="@employee.empId" />
+                <div class="row">
+                    <div class="col-sm-6 form-group">
+                        <div class="mb-1 small font-weight-bold">Leave Start Date *</div>
+                        <input required type="date" class="form-control form-control-user" id="leaveStartDate" name="startDate">
+                    </div>
+                    <div class="col-sm-6 form-group">
+                        <div class="mb-1 small font-weight-bold">Leave End Date *</div>
+                        <input required type="date" class="form-control form-control-user" id="leaveEndDate" name="endDate">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="mb-1 small font-weight-bold">Reason *</div>
+                    <textarea required type="text" class="form-control card-body" id="leaveReason" rows="5" name="reason"></textarea>
+                </div>
+
+                <div class="form-group row">
+                    <div class="col-sm-6 mb-3 mb-sm-0">
+                        <a type="button" class="btn btn-warning btn-user btn-block" asp-controller="Leave" asp-action="Index">CANCEL</a>
+                    </div>
+                    <div class="col-sm-6">
+                        <button type="submit" class="btn btn-primary btn-user btn-block">REQUEST</button>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>(function () {
+        'use strict';
+        window.addEventListener('load', function () {
+            let forms = document.getElementsByClassName('needs-validation');
+            let validation = Array.prototype.filter.call(forms, function (form) {
+                form.addEventListener('submit', function (event) {
+                    if (form.checkValidity() === false) {
+                        event.preventDefault();
+                        event.stopPropagation();
+                    } else {
+                        alert("Leave Request sent for Approval.");
+                    }
+                    form.classList.add('was-validated');
+                }, false);
+            });
+        }, false);
+    })();</script>
